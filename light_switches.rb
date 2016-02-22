@@ -2,31 +2,27 @@
 # SovietKetchup
 # v0.0.0
 
-# Getting the number of lights
+# Getting the number of lights and int array
 input = File.open("nums.txt", "r")
 lights = Array.new(input.readline.to_i, 0)
 
-# Function to swap 0 to 1 and 1 to 0
-def swap x
-  if x == 0 then x = 1 else x = 0 end
-end
-
-# Number of pairs in file
 lines = File.foreach("nums.txt").count.to_i - 1
-c = 0
 lines.times {
   # Getting the range to swap
   range = input.readline.split(" ")
   range[0] = range[0].to_i; range[1] = range[1].to_i
-    
-  lights[range[0]..range[1]].each { |x| 
-    
-  }
-
+  
+  # Setting lower and upper ranges
+  if range[0] <= range[1]
+    rl = range[0]; ru = range[1]
+  else
+    rl = range[1]; ru = range[0]
+  end
+  
+  lights.each_with_index{ |v, i| lights[i] = (lights[i]-1).abs if i >= rl && i <= ru }
 }
 
+puts lights
 
 
 
-#############
-puts " "
