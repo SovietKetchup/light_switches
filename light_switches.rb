@@ -17,7 +17,7 @@ lines.times {
     rl = ran.last.to_i; ru = ran.first.to_i
   end
   
-  lights.each_with_index{ |v, i| lights[i] = (lights[i]-1).abs if i >= rl && i <= ru }
+  lights.each_with_index{ |v,i| lights[i]=(lights[i]-1).abs if i>=rl && i<=ru }
 }
 f.close
 puts lights.count(1)
